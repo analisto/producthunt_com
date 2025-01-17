@@ -112,26 +112,3 @@ Key financial insights:
 1. Product performance analysis
 2. Feature enhancement based on usage
 3. Market expansion strategy
-
-## Installation & Usage
-
-```bash
-# Clone the repository
-git clone https://github.com/Ismat-Samadov/yelo_DataAnalyst.git
-
-# Install requirements
-pip install -r requirements.txt
-
-# Run Jupyter Notebook
-jupyter notebook
-```
-
-## Required Dependencies
-- pandas
-- matplotlib
-- seaborn
-- numpy
-- jupyter
-
-## License
-This project is licensed under the terms of the license included in the repository.
