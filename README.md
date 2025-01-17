@@ -111,17 +111,17 @@ This distribution supports a tiered product strategy targeting different value s
 
 ## Implementation Strategy
 
-### Phase 1: Market Entry (Q1-Q2 2024)
+### Phase 1: Market Entry (Q1-Q2 2025)
 1. Launch Infinity Card to top 20% of Mid Career segment
 2. Roll out Visa Signature to Early Career professionals
 3. Introduce Platinum Card with digital-first campaign
 
-### Phase 2: Market Development (Q3-Q4 2024)
+### Phase 2: Market Development (Q3-Q4 2025)
 1. Expand Infinity Card to top Early Career customers
 2. Enhance Visa Signature rewards based on usage patterns
 3. Scale Platinum Card through partnership programs
 
-### Phase 3: Market Optimization (2025)
+### Phase 3: Market Optimization (2026)
 1. Introduce segment-specific value propositions
 2. Develop cross-segment upgrade paths
 3. Launch premium features for each tier
