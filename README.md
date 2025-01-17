@@ -1,117 +1,141 @@
-# Bank Customer Analysis and Product Recommendations
-## Data Analysis & Product Strategy 2024
+# Yelo Bank Customer Analysis Project
+## Data-Driven Product Strategy 2024
 
 ## Table of Contents
-- [Executive Summary](#executive-summary)
-- [Customer Segmentation Analysis](#customer-segmentation-analysis)
+- [Project Overview](#project-overview)
+- [Repository Structure](#repository-structure)
+- [Data Analysis](#data-analysis)
+- [Customer Segments](#customer-segments)
 - [Product Recommendations](#product-recommendations)
-- [Implementation Strategy](#implementation-strategy)
-- [Risk Management](#risk-management)
+- [Installation & Usage](#installation--usage)
 
-## Executive Summary
-Based on the analysis of over 17,000 unique customers and 20,074 loans totaling 199.5M AZN, we've identified key customer segments and developed targeted product recommendations. Our data reveals distinct borrowing patterns across age groups, enabling us to design products that better serve our customers' needs while maximizing business potential.
+## Project Overview
+This analysis examines Yelo Bank's loan portfolio data to develop targeted product recommendations. The project includes comprehensive customer segmentation analysis, visualizations, and strategic product suggestions based on customer behavior patterns.
 
-## Customer Segmentation Analysis
+## Repository Structure
+```
+.
+├── DATA_ANALYTICS_EXAM_SQL.XLSX
+├── Data Analyst Technical Assignment.ipynb
+├── LICENSE
+├── README.md
+├── charts/
+│   ├── average_loan_count.png
+│   ├── sum_of_loans.png
+│   ├── total_loan_count.png
+│   └── unique_customers_count.png
+├── loan_data.xlsx
+└── requirements.txt
+```
 
-### Key Segments Overview
+## Data Analysis
 
-1. **Early Career Professionals (31-40)**
-   - 40.2% of customer base (6,905 customers)
-   - 81.3M AZN total loan volume
-   - Average loan: 10,007 AZN
-   - Multiple loan ratio: 1.18 loans per customer
-   - Highest engagement in both customer count and loan volume
+### Customer Distribution Analysis
+![Unique Customers Count](charts/unique_customers_count.png)
 
-2. **Mid-Career Segment (41-50)**
-   - 22.8% of customers (3,914 customers)
-   - 53.9M AZN total loan volume
-   - Highest average loan amount: 11,632 AZN
-   - Strong financial capacity shown by loan amounts
+Our analysis reveals three primary customer segments:
+- Early Career (31-40): 40.2% (6,905 customers)
+- Mid Career (41-50): 22.8% (3,914 customers)
+- Young Professional (25-30): 12.8% (2,196 customers)
 
-3. **Young Professionals (25-30)**
-   - 12.8% of customers (2,196 customers)
-   - 18.4M AZN total loan volume
-   - Average loan: 7,339 AZN
-   - High growth potential segment
+### Loan Behavior Patterns
+![Total Loan Count](charts/total_loan_count.png)
 
-## Product Recommendations
+Loan distribution shows strong correlation with customer segments:
+- Early Career segment leads with 8,125 loans (40.5%)
+- Mid Career follows with 4,633 loans (23.1%)
+- Young Professionals with 2,506 loans (12.5%)
 
-### 1. Infinity Credit Card
-**Target: Premium Mid-Career & Established Early Career Customers**
-- **Eligibility**: 
-  - Income > 60,000 AZN annually
-  - Excellent credit history
-  - Primary segment: Mid-Career (41-50) with loan amounts > 15,000 AZN
-- **Features**:
-  - Unlimited cashback on all purchases
-  - Complimentary airport lounge access worldwide
-  - Premium concierge service
-  - Extended warranty on purchases
-  - Travel insurance package
-- **Justification**: Data shows Mid-Career segment has highest average loan amount (11,632 AZN) and appetite for premium products
+### Financial Analysis
+![Average Loan Count](charts/average_loan_count.png)
+![Sum of Loans](charts/sum_of_loans.png)
 
-### 2. Visa Signature Card
+Key financial insights:
+- Total portfolio value: 199.5M AZN
+- Highest average loan amount: Mid Career (11,632 AZN)
+- Largest portfolio share: Early Career (81.3M AZN)
+
+## Customer Segments & Product Recommendations
+
+### 1. Premium Tier: Infinity Credit Card
+**Target: Mid Career Professionals (41-50)**
+- Demonstrated highest average loan amount (11,632 AZN)
+- Strong financial stability (53.9M AZN total volume)
+- Low risk profile based on loan performance
+
+**Features:**
+- Unlimited cashback
+- Global airport lounge access
+- Premium travel insurance
+- Concierge services
+- Metal card design
+
+### 2. Middle Tier: Visa Signature
 **Target: Early Career Professionals (31-40)**
-- **Eligibility**:
-  - Income > 35,000 AZN annually
-  - Good credit history
-  - Primary segment: Early Career with loan amounts 8,000-15,000 AZN
-- **Features**:
-  - 2% cashback on everyday purchases
-  - Travel rewards program
-  - Purchase protection
-  - Extended warranty on select items
-- **Justification**: Largest customer segment (40.2%) with consistent borrowing patterns and growing financial needs
+- Largest customer base (40.2%)
+- Consistent borrowing patterns (81.3M AZN total volume)
+- Average loan size: 10,007 AZN
 
-### 3. Platinum Credit Card
-**Target: Young Professionals (25-30) & Early Career Starters**
-- **Eligibility**:
-  - Income > 25,000 AZN annually
-  - Good credit history
-  - Primary segment: Young Professionals with loan amounts 5,000-10,000 AZN
-- **Features**:
-  - 1.5% cashback on all purchases
-  - 0% intro APR for 6 months
-  - No annual fee first year
-  - Basic travel insurance
-- **Justification**: Growing segment (12.8% of customers) with demonstrated credit responsibility and growth potential
+**Features:**
+- 2% cashback on all purchases
+- Travel rewards program
+- Purchase protection
+- Extended warranty
+- Priority customer service
+
+### 3. Growth Tier: Platinum Card
+**Target: Young Professionals (25-30)**
+- Growing segment (12.8% of customers)
+- Average loan size: 7,339 AZN
+- High growth potential
+
+**Features:**
+- 1.5% cashback
+- 0% intro APR
+- No annual fee first year
+- Basic travel insurance
+- Mobile banking benefits
 
 ## Implementation Strategy
 
 ### Phase 1: Launch (Q1-Q2 2024)
-1. Roll out Infinity Card to top-tier Mid-Career customers
-2. Introduce Visa Signature to established Early Career segment
-3. Launch Platinum Card with focus on Young Professionals
+1. Infinity Card rollout to Mid Career segment
+2. Visa Signature introduction to Early Career professionals
+3. Platinum Card launch for Young Professionals
 
-### Phase 2: Growth (Q3-Q4 2024)
-1. Develop cross-selling programs
-2. Implement reward point partnerships
-3. Launch digital onboarding platform
+### Phase 2: Development (Q3-Q4 2024)
+1. Reward program optimization
+2. Digital platform enhancement
+3. Partnership expansion
 
-### Phase 3: Optimization (2025)
-1. Analyze product performance
-2. Adjust rewards based on usage patterns
-3. Expand premium services
+### Phase 3: Scale (2025)
+1. Product performance analysis
+2. Feature enhancement based on usage
+3. Market expansion strategy
 
-## Risk Management
+## Installation & Usage
 
-### Credit Risk Profile
-- Mid-Career segment shows stable credit behavior (std dev: 10,955 AZN)
-- Early Career demonstrates consistent repayment patterns
-- Young Professional segment has lowest default rates
+```bash
+# Clone the repository
+git clone [repository-url]
 
-### Monitoring & Control
-- Regular portfolio review
-- Dynamic credit limit management
-- Behavioral scoring implementation
+# Install requirements
+pip install -r requirements.txt
 
-## Success Metrics
-1. Product adoption rates by segment
-2. Cross-selling success ratio
-3. Customer lifetime value
-4. Portfolio profitability
-5. Customer satisfaction scores
+# Run Jupyter Notebook
+jupyter notebook
+```
+
+## Required Dependencies
+- pandas
+- matplotlib
+- seaborn
+- numpy
+- jupyter
+
+## License
+This project is licensed under the terms of the license included in the repository.
 
 ---
 
-**Note**: All analyses and recommendations are based on the current loan portfolio data of 20,074 loans across 17,160 unique customers, with demonstrated borrowing and repayment patterns supporting the segmentation strategy.
+**Note**: This analysis is based on actual loan portfolio data of 20,074 loans across 17,160 unique customers, with visualizations available in the `charts` directory supporting all findings and recommendations.
