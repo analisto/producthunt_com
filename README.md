@@ -117,7 +117,7 @@ Key financial insights:
 
 ```bash
 # Clone the repository
-git clone [repository-url]
+git clone https://github.com/Ismat-Samadov/yelo_DataAnalyst.git
 
 # Install requirements
 pip install -r requirements.txt
@@ -135,7 +135,3 @@ jupyter notebook
 
 ## License
 This project is licensed under the terms of the license included in the repository.
-
----
-
-**Note**: This analysis is based on actual loan portfolio data of 20,074 loans across 17,160 unique customers, with visualizations available in the `charts` directory supporting all findings and recommendations.
