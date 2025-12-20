@@ -293,13 +293,13 @@ Total Crimes (Row 3) = 33,379
 
 ```
 crime_types_analyse/
-├── data/
-│   ├── 003_1.xls          # Crimes by types (1993-2024)
-│   ├── 003_3.xls          # Criminals by Criminal Code (2005-2024)
-│   ├── 003_4.xls          # Crimes by perpetrator type (1993-2024)
-│   ├── 003_10.xls         # Criminals by crime type (1993-2024)
-│   └── 003_11.xls         # Criminal demographics (1993-2024)
-├── charts/
+├── data/                           # Raw data files
+│   ├── 003_1.xls                  # Crimes by types (1993-2024)
+│   ├── 003_3.xls                  # Criminals by Criminal Code (2005-2024)
+│   ├── 003_4.xls                  # Crimes by perpetrator type (1993-2024)
+│   ├── 003_10.xls                 # Criminals by crime type (1993-2024)
+│   └── 003_11.xls                 # Criminal demographics (1993-2024)
+├── charts/                         # Generated visualization charts
 │   ├── 01_total_crimes_trend.png
 │   ├── 02_crime_types_2024.png
 │   ├── 03_top_crimes_trend.png
@@ -310,8 +310,34 @@ crime_types_analyse/
 │   ├── 08_crimes_vs_criminals.png
 │   ├── 09_year_over_year_change.png
 │   └── 10_drug_crimes_evolution.png
-├── DATASET_ANALYSIS.md    # Detailed technical documentation
-└── README.md              # This presentation document
+├── scripts/                        # Analysis and visualization scripts
+│   └── generate_charts.py         # Chart generation script (executable)
+├── DATASET_ANALYSIS.md            # Detailed technical documentation
+├── README.md                      # This presentation document
+└── .gitignore                     # Git ignore rules
+```
+
+### 📝 How to Regenerate Charts
+
+To regenerate all charts from the data:
+
+```bash
+# Navigate to project directory
+cd crime_types_analyse
+
+# Run the chart generation script
+python3 scripts/generate_charts.py
+```
+
+**Requirements:**
+- Python 3.x
+- pandas
+- matplotlib
+- numpy
+
+**Install dependencies:**
+```bash
+pip install pandas matplotlib numpy openpyxl xlrd
 ```
 
 ---
@@ -378,7 +404,7 @@ The crime statistics for Azerbaijan (1993-2024) reveal a complex landscape with 
 
 ---
 
-**For detailed technical analysis and data methodology, see [DATASET_ANALYSIS.md](DATASET_ANALYSIS.md)**
+**For detailed technical analysis and data methodology, see [DATASET_ANALYSIS.md](data/DATASET_ANALYSIS.md)**
 
 ---
 
