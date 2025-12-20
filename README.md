@@ -293,28 +293,31 @@ Total Crimes (Row 3) = 33,379
 
 ```
 crime_types_analyse/
-├── data/                           # Raw data files
+├── .gitignore                     # Git ignore rules
+├── README.md                      # This presentation document (main)
+│
+├── data/                          # Raw data files and technical docs
 │   ├── 003_1.xls                  # Crimes by types (1993-2024)
 │   ├── 003_3.xls                  # Criminals by Criminal Code (2005-2024)
 │   ├── 003_4.xls                  # Crimes by perpetrator type (1993-2024)
 │   ├── 003_10.xls                 # Criminals by crime type (1993-2024)
-│   └── 003_11.xls                 # Criminal demographics (1993-2024)
-├── charts/                         # Generated visualization charts
-│   ├── 01_total_crimes_trend.png
-│   ├── 02_crime_types_2024.png
-│   ├── 03_top_crimes_trend.png
-│   ├── 04_demographics_gender_age.png
-│   ├── 05_employment_status.png
-│   ├── 06_criminal_code_categories.png
-│   ├── 07_crime_subcategories.png
-│   ├── 08_crimes_vs_criminals.png
-│   ├── 09_year_over_year_change.png
-│   └── 10_drug_crimes_evolution.png
-├── scripts/                        # Analysis and visualization scripts
-│   └── generate_charts.py         # Chart generation script (executable)
-├── DATASET_ANALYSIS.md            # Detailed technical documentation
-├── README.md                      # This presentation document
-└── .gitignore                     # Git ignore rules
+│   ├── 003_11.xls                 # Criminal demographics (1993-2024)
+│   └── DATASET_ANALYSIS.md        # Detailed technical documentation
+│
+├── charts/                        # Generated visualization charts (PNG)
+│   ├── 01_total_crimes_trend.png          # 32-year crime trend
+│   ├── 02_crime_types_2024.png            # Current crime distribution
+│   ├── 03_top_crimes_trend.png            # Top 4 crimes (2014-2024)
+│   ├── 04_demographics_gender_age.png     # Criminal demographics
+│   ├── 05_employment_status.png           # Employment breakdown
+│   ├── 06_criminal_code_categories.png    # Legal categorization
+│   ├── 07_crime_subcategories.png         # Detailed subcategories
+│   ├── 08_crimes_vs_criminals.png         # Comparative analysis
+│   ├── 09_year_over_year_change.png       # 2023→2024 changes
+│   └── 10_drug_crimes_evolution.png       # Drug crime 32-year trend
+│
+└── scripts/                       # Analysis and visualization scripts
+    └── generate_charts.py         # Chart generation script (executable)
 ```
 
 ### 📝 How to Regenerate Charts
