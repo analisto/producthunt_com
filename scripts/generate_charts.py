@@ -374,41 +374,59 @@ def generate_chart_07():
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(22, 10))
 
-    # Against Personality subcategories
+    # Against Personality - Bar Chart
     labels1 = [item[0] for item in subcategories['Against Personality']]
     values1 = [item[1] for item in subcategories['Against Personality']]
     colors1 = plt.cm.Reds(np.linspace(0.4, 0.9, len(labels1)))
     total1 = sum(values1)
 
-    wedges1, texts1, autotexts1 = ax1.pie(values1, autopct='%1.1f%%',
-                                            colors=colors1, startangle=90,
-                                            pctdistance=0.75,
-                                            textprops={'fontsize': 11, 'fontweight': 'bold'})
+    # Sort by value
+    sorted_idx1 = np.argsort(values1)[::-1]
+    labels1_sorted = [labels1[i] for i in sorted_idx1]
+    values1_sorted = [values1[i] for i in sorted_idx1]
+    colors1_sorted = [colors1[i] for i in sorted_idx1]
 
+    bars1 = ax1.barh(labels1_sorted, values1_sorted, color=colors1_sorted, edgecolor='black', linewidth=1.2)
+
+    # Add value labels
+    for bar, value in zip(bars1, values1_sorted):
+        width = bar.get_width()
+        percentage = (value / total1) * 100
+        ax1.text(width + 50, bar.get_y() + bar.get_height()/2,
+                f'{int(value):,} ({percentage:.1f}%)',
+                ha='left', va='center', fontweight='bold', fontsize=11)
+
+    ax1.set_xlabel('Number of Criminals', fontweight='bold')
     ax1.set_title('Crimes Against Personality - Subcategories (2024)', fontsize=15, fontweight='bold', pad=20)
+    ax1.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: f'{int(x):,}'))
+    ax1.grid(axis='x', alpha=0.3)
 
-    legend_text1 = [f'{label}: {int(value):,} ({value/total1*100:.1f}%)'
-                    for label, value in zip(labels1, values1)]
-    ax1.legend(wedges1, legend_text1, loc='upper left', bbox_to_anchor=(-0.15, 1),
-              fontsize=11, frameon=True, fancybox=True, shadow=True)
-
-    # Public Safety subcategories
+    # Public Safety - Bar Chart
     labels2 = [item[0] for item in subcategories['Public Safety']]
     values2 = [item[1] for item in subcategories['Public Safety']]
     colors2 = plt.cm.Greens(np.linspace(0.4, 0.9, len(labels2)))
     total2 = sum(values2)
 
-    wedges2, texts2, autotexts2 = ax2.pie(values2, autopct='%1.1f%%',
-                                            colors=colors2, startangle=90,
-                                            pctdistance=0.75,
-                                            textprops={'fontsize': 11, 'fontweight': 'bold'})
+    # Sort by value
+    sorted_idx2 = np.argsort(values2)[::-1]
+    labels2_sorted = [labels2[i] for i in sorted_idx2]
+    values2_sorted = [values2[i] for i in sorted_idx2]
+    colors2_sorted = [colors2[i] for i in sorted_idx2]
 
+    bars2 = ax2.barh(labels2_sorted, values2_sorted, color=colors2_sorted, edgecolor='black', linewidth=1.2)
+
+    # Add value labels
+    for bar, value in zip(bars2, values2_sorted):
+        width = bar.get_width()
+        percentage = (value / total2) * 100
+        ax2.text(width + 80, bar.get_y() + bar.get_height()/2,
+                f'{int(value):,} ({percentage:.1f}%)',
+                ha='left', va='center', fontweight='bold', fontsize=11)
+
+    ax2.set_xlabel('Number of Criminals', fontweight='bold')
     ax2.set_title('Public Safety & Order - Subcategories (2024)', fontsize=15, fontweight='bold', pad=20)
-
-    legend_text2 = [f'{label}: {int(value):,} ({value/total2*100:.1f}%)'
-                    for label, value in zip(labels2, values2)]
-    ax2.legend(wedges2, legend_text2, loc='upper left', bbox_to_anchor=(-0.15, 1),
-              fontsize=11, frameon=True, fancybox=True, shadow=True)
+    ax2.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, p: f'{int(x):,}'))
+    ax2.grid(axis='x', alpha=0.3)
 
     plt.tight_layout()
     plt.savefig('charts/07_crime_subcategories.png', dpi=300, bbox_inches='tight')
