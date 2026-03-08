@@ -23,7 +23,7 @@ Three findings stand out above all others:
 
 ## Chart 1 — Where Is the Audience?
 
-**File:** `charts/01_market_size_by_category.png`
+![Market Size by Category](charts/01_market_size_by_category.png)
 
 ### What the chart shows
 Total follower demand summed across all products in each category. Top 15 categories ranked by combined community size.
@@ -52,7 +52,7 @@ Use this chart to validate total addressable market (TAM) when pitching to stake
 
 ## Chart 2 — Where Is the Opportunity?
 
-**File:** `charts/02_opportunity_score_per_product.png`
+![Opportunity Score per Product](charts/02_opportunity_score_per_product.png)
 
 ### What the chart shows
 Average followers per product within each category (minimum 50 products). This is the opportunity score: how much demand exists relative to how many products compete for it. Green bars = AI-native categories, blue = traditional.
@@ -85,7 +85,7 @@ Traditional categories like Productivity (249) and Marketing (251) are so satura
 
 ## Chart 3 — Does Quality Pay Off?
 
-**File:** `charts/03_quality_vs_traction.png`
+![Quality vs Traction](charts/03_quality_vs_traction.png)
 
 ### What the chart shows
 Average follower count for products grouped by their review rating bracket. Only products with at least 5 reviews are included to ensure statistical reliability.
@@ -110,7 +110,7 @@ Note that the vast majority of reviewed products (80%) fall in the Perfect brack
 
 ## Chart 4 — Does Persistence Pay Off?
 
-**File:** `charts/04_launch_frequency_vs_audience.png`
+![Launch Frequency vs Audience](charts/04_launch_frequency_vs_audience.png)
 
 ### What the chart shows
 Average followers per product grouped by the total number of ProductHunt launches the product has had. Products that launch repeatedly (version launches, feature launches, re-launches) are compared to one-time launchers.
@@ -136,7 +136,7 @@ However, this is partly a survivorship effect: products that launch many times a
 
 ## Chart 5 — Which Categories Deliver Consistent Quality?
 
-**File:** `charts/05_category_quality_leaders.png`
+![Category Quality Leaders](charts/05_category_quality_leaders.png)
 
 ### What the chart shows
 Top 15 categories by average review rating, requiring at least 20 reviewed products per category to qualify. These are the markets where user satisfaction is highest.
@@ -165,7 +165,7 @@ This makes them both high-quality markets and difficult ones to compete in: the 
 
 ## Chart 6 — Who Are the Market Leaders?
 
-**File:** `charts/06_top_products_by_community.png`
+![Top Products by Community](charts/06_top_products_by_community.png)
 
 ### What the chart shows
 Top 15 products by follower count, color-coded by review rating (green = 4.7+, amber = 4.0–4.7, grey = unrated or below 4.0).
@@ -202,7 +202,7 @@ Critically, almost all market leaders combine high followers **and** high rating
 
 ## Chart 7 — How Engaged Are Each Category's Communities?
 
-**File:** `charts/07_review_engagement_gap.png`
+![Review Engagement Gap](charts/07_review_engagement_gap.png)
 
 ### What the chart shows
 For the top 20 categories by product volume: the split between products that have at least one review (dark blue) and products with zero reviews (light blue). Percentage reviewed is labeled above each bar.
@@ -233,7 +233,7 @@ This is both a market inefficiency and a competitive lever. Any product that act
 
 ## Chart 8 — Saturation vs. Engagement: How Competitive Are Key Markets?
 
-**File:** `charts/08_saturation_vs_engagement.png`
+![Saturation vs Engagement](charts/08_saturation_vs_engagement.png)
 
 ### What the chart shows
 A dual-axis comparison for 12 strategic categories. Blue bars (left axis) show the number of competing products. Orange bars (right axis) show what percentage of those products have been reviewed — a proxy for how actively engaged the communities are.
@@ -254,7 +254,7 @@ Two patterns emerge from this comparison:
 
 ## Chart 9 — AI vs. Traditional: Where Is the Bigger Opportunity?
 
-**File:** `charts/09_ai_vs_traditional_opportunity.png`
+![AI vs Traditional Opportunity](charts/09_ai_vs_traditional_opportunity.png)
 
 ### What the chart shows
 Side-by-side horizontal bars comparing average followers per product for hand-selected AI-native versus traditional categories. This directly answers: where should a new product launch to maximize its chance of building a large community?
