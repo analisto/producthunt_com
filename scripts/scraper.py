@@ -91,11 +91,11 @@ def parse_cookie_str(cookie_str: str) -> dict:
 
 def load_query() -> tuple[str, str]:
     """Load CategoryPageListQuery from file, return (query_text, sha256_hash)."""
-    query_file = Path("investigation/category_page_list_query.graphql")
+    query_file = Path("scripts/category_page_list_query.graphql")
     if not query_file.exists():
         raise FileNotFoundError(
-            "investigation/category_page_list_query.graphql not found.\n"
-            "Run: node investigation/extract_hash2.js  (requires graphql npm package in investigation/)"
+            "scripts/category_page_list_query.graphql not found.\n"
+            "Run: node scripts/extract_hash2.js  (requires: cd scripts && npm install)"
         )
     query_text = query_file.read_text(encoding="utf-8")
     query_hash = hashlib.sha256(query_text.encode("utf-8")).hexdigest()

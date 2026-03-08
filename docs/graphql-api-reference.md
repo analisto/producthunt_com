@@ -23,7 +23,7 @@ Minimum required cookies:
 
 The primary query for scraping ranked products within a category.
 
-**File:** `investigation/category_page_list_query.graphql`
+**File:** `scripts/category_page_list_query.graphql`
 **Hash method:** `SHA-256(print(document))` using graphql-js canonical format
 **How to call:** POST with `query` + `extensions.persistedQuery` (see below)
 
@@ -65,7 +65,7 @@ query CategoryPageListQuery(
 import hashlib, aiohttp, json
 from pathlib import Path
 
-query_text = Path("investigation/category_page_list_query.graphql").read_text(encoding="utf-8")
+query_text = Path("scripts/category_page_list_query.graphql").read_text(encoding="utf-8")
 query_hash = hashlib.sha256(query_text.encode()).hexdigest()
 
 payload = {

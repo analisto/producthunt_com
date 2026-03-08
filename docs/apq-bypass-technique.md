@@ -57,7 +57,7 @@ def load_query(path: str) -> tuple[str, str]:
     h    = hashlib.sha256(text.encode("utf-8")).hexdigest()
     return text, h
 
-query_text, query_hash = load_query("investigation/category_page_list_query.graphql")
+query_text, query_hash = load_query("scripts/category_page_list_query.graphql")
 
 payload = {
     "operationName": "CategoryPageListQuery",
@@ -105,11 +105,11 @@ The query is embedded as a minified JS object:
 
 Extract by counting braces:
 ```js
-// investigation/extract_hash2.js
+// scripts/extract_hash2.js
 const { print } = require('graphql');   // npm install graphql
 const crypto = require('crypto');
 
-const bundle = fs.readFileSync('investigation/debug_bundle.js', 'utf-8');
+const bundle = fs.readFileSync('scripts/debug_bundle.js', 'utf-8');
 const idx = bundle.indexOf('"CategoryPageListQuery"');
 const docStart = bundle.lastIndexOf('{kind:"Document"', idx);
 
@@ -138,7 +138,7 @@ const doc = eval('(' + docStr.replace(/!0/g, 'true').replace(/!1/g, 'false') + '
 const queryText = print(doc);   // graphql-js canonical format
 const hash = crypto.createHash('sha256').update(queryText).digest('hex');
 
-fs.writeFileSync('investigation/category_page_list_query.graphql', queryText);
+fs.writeFileSync('scripts/category_page_list_query.graphql', queryText);
 console.log('Hash:', hash);
 ```
 
@@ -161,7 +161,7 @@ The server stores a hash that was computed **at build time** from the `.graphql`
 If the APQ registration doesn't work in future (server adds additional validation), use Playwright to capture real network requests:
 
 ```js
-// investigation/capture_hash.js
+// scripts/capture_hash.js
 const { chromium } = require('playwright');
 
 const browser = await chromium.launch({ headless: true });
