@@ -1,0 +1,230 @@
+query CategoryPageListQuery($slug: String!, $order: CategoryProductsOrder!, $page: Int, $pageSize: Int!, $featuredOnly: Boolean = true, $tags: [String!]) {
+  productCategory(slug: $slug) {
+    id
+    path
+    slug
+    description
+    ...CategoryPageListFragment
+  }
+}
+
+fragment CategoryTagFragment on ProductCategory {
+  id
+  name
+  slug
+  path
+}
+
+fragment LaunchDayBadge on TopPostBadge {
+  id
+  post {
+    id
+    slug
+    name
+    product {
+      id
+      slug
+    }
+    redirectToProduct {
+      id
+      slug
+    }
+  }
+  position
+  period
+  date
+}
+
+fragment GoldenKittyBadge on GoldenKittyAwardBadge {
+  id
+  category
+  position
+  year
+  post {
+    id
+    slug
+    name
+    product {
+      id
+      slug
+    }
+    redirectToProduct {
+      id
+      slug
+    }
+  }
+}
+
+fragment OrbitAwardBadge on OrbitAwardBadge {
+  id
+  awardName
+  awardColor
+  season
+  reasons
+  product {
+    id
+    name
+  }
+  orbitCategory: category {
+    id
+    slug
+    name
+    path
+  }
+}
+
+fragment ProductFollowButtonFragment on Product {
+  id
+  followersCount
+  isSubscribed
+}
+
+fragment ProductAlternativesItemFragment on Product {
+  id
+  slug
+  name
+  tagline
+  logoUuid
+  reviewsRating
+  reviewsCount
+  categories {
+    ...CategoryTagFragment
+  }
+  tags
+  embeddingSummary
+  isTopProduct
+  badges(sort: row_item, first: 3) {
+    edges {
+      node {
+        ... on TopPostBadge {
+          id
+          ...LaunchDayBadge
+        }
+        ... on GoldenKittyAwardBadge {
+          id
+          ...GoldenKittyBadge
+        }
+        ... on OrbitAwardBadge {
+          id
+          ...OrbitAwardBadge
+        }
+      }
+    }
+  }
+  ...ProductFollowButtonFragment
+}
+
+fragment ProductThumbnailFragment on Product {
+  id
+  name
+  logoUuid
+  isNoLongerOnline
+}
+
+fragment BadgeIconTopPostBadgeFragment on TopPostBadge {
+  id
+  position
+  period
+  date
+}
+
+fragment BadgeIconFragment on Post {
+  id
+  name
+  badges(first: 1, types: [TopPostBadge], sort: position) {
+    edges {
+      node {
+        __typename
+        ... on TopPostBadge {
+          id
+          ...BadgeIconTopPostBadgeFragment
+        }
+      }
+    }
+  }
+}
+
+fragment PostStatusIconFragment on Post {
+  id
+  productState
+}
+
+fragment PostThumbnailFragment on Post {
+  id
+  name
+  thumbnailImageUuid
+  ...PostStatusIconFragment
+}
+
+fragment CategoryProductFeedItemShoutoutsItemFragment on DetailedReview {
+  id
+  product {
+    id
+  }
+  fromPost {
+    id
+    slug
+    name
+    product {
+      id
+      slug
+    }
+    ...BadgeIconFragment
+    ...PostThumbnailFragment
+  }
+}
+
+fragment CategoryProductFeedItemShoutoutsFragment on Product {
+  id
+  slug
+  founderReviewsCount
+  founderShoutouts(first: 3) {
+    id
+    ...CategoryProductFeedItemShoutoutsItemFragment
+  }
+}
+
+fragment CategoryPageListFragment on ProductCategory {
+  id
+  name
+  slug
+  aiSummary: productsSummary(order: $order) {
+    summary
+  }
+  categoryTags(onlyHasFeaturedPosts: $featuredOnly, includeTags: $tags) {
+    name
+    count
+  }
+  snapshot {
+    lastUpdatedAt
+  }
+  products(
+    page: $page
+    first: $pageSize
+    order: $order
+    onlyHasFeaturedPosts: $featuredOnly
+    liveOnly: true
+    tags: $tags
+  ) {
+    edges {
+      node {
+        id
+        detailedReviewsCount
+        postsCount
+        latestLaunch {
+          id
+          scheduledAt
+        }
+        ...ProductAlternativesItemFragment
+        ...ProductThumbnailFragment
+        ...CategoryProductFeedItemShoutoutsFragment
+        structuredData
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+    totalCount
+  }
+}
