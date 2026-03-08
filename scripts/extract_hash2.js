@@ -47,5 +47,5 @@ console.log(queryStr.slice(0, 1000));
 const hash = crypto.createHash('sha256').update(queryStr).digest('hex');
 console.log('\nSHA-256 hash:', hash);
 
-fs.writeFileSync('data/category_page_list_query.graphql', queryStr);
-console.log('Saved to data/category_page_list_query.graphql');
+fs.writeFileSync('scripts/category_page_list_query.graphql', queryStr);
+console.log('Saved to scripts/category_page_list_query.graphql');

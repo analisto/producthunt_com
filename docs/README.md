@@ -9,7 +9,7 @@ pip install aiohttp beautifulsoup4
 # Step 2: Update COOKIE_STR in scripts/scraper.py with fresh browser cookies
 
 # Step 3: Ensure the query file exists
-node investigation/extract_hash2.js   # requires: cd investigation && npm install graphql
+node scripts/extract_hash2.js   # requires: cd scripts && npm install
 
 # Step 4: Run
 python scripts/scraper.py                  # full scrape (categories + products)
@@ -80,6 +80,6 @@ When the scraper stops working:
 
 - [ ] **403 on /categories** → Refresh `cf_clearance` cookie
 - [ ] **Null productCategory** → Refresh `_producthunt_session_production` cookie
-- [ ] **PersistedQueryNotFound** → Bundle changed, re-run `node investigation/extract_hash2.js`
+- [ ] **PersistedQueryNotFound** → Bundle changed, re-run `node scripts/extract_hash2.js`
 - [ ] **Variable invalid value** → Check enum values for `order` parameter
 - [ ] **Empty products** → Try `featuredOnly: false` in scraper config

@@ -224,20 +224,20 @@ const { print } = require('graphql');
 const crypto = require('crypto');
 
 // Extract the {kind:"Document"...} object from bundle text
-// (brace-counting extraction — see investigation/extract_hash2.js)
+// (brace-counting extraction — see scripts/extract_hash2.js)
 const doc = eval('(' + docStr.replace(/!0/g, 'true').replace(/!1/g, 'false') + ')');
 const queryText = print(doc);
 const hash = crypto.createHash('sha256').update(queryText).digest('hex');
 ```
 
-The extracted queries are saved to `investigation/category_page_list_query.graphql`.
+The extracted queries are saved to `scripts/category_page_list_query.graphql`.
 
 ### Step 3 — Use in requests
 
 ```python
 import hashlib
 
-query_text = open("investigation/category_page_list_query.graphql").read()
+query_text = open("scripts/category_page_list_query.graphql").read()
 query_hash = hashlib.sha256(query_text.encode()).hexdigest()
 
 payload = {
@@ -378,14 +378,12 @@ await asyncio.gather(*tasks)            # all categories concurrently
 
 When ProductHunt deploys a new version:
 1. JS bundle filenames change → re-run the bundle search to find the new file containing `CategoryPageListQuery`
-2. The query AST might gain new fields → re-extract with `node investigation/extract_hash2.js`
+2. The query AST might gain new fields → re-extract with `node scripts/extract_hash2.js`
 3. New hash is auto-computed — no manual work needed
 4. Refresh browser cookies if `cf_clearance` expired
 
-**Investigation scripts (in `investigation/`):**
-- `extract_hash2.js` — extracts `CategoryPageListQuery` from bundle, prints it, computes hash
-- `verify_hash.js` — cross-checks computed hash against known good hash
-- `check_frags.js` — verifies all fragment spreads are satisfied in the document
-- `capture_hash.js` — Playwright-based network interceptor (needs valid cf_clearance)
-- `debug_bundle.js` — downloaded JS bundle snapshot used during extraction
-- `category_page_list_query.graphql` — extracted canonical query text (read by `scraper.py`)
+**Scripts (in `scripts/`):**
+- `scraper.py` — main scraper (categories + products)
+- `extract_hash2.js` — re-extracts `CategoryPageListQuery` from a downloaded bundle when PH deploys a new version
+- `category_page_list_query.graphql` — extracted canonical query text (read by `scraper.py` at runtime)
+- `package.json` / `package-lock.json` — Node deps for `extract_hash2.js` (`graphql` package)
