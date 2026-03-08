@@ -382,8 +382,10 @@ When ProductHunt deploys a new version:
 3. New hash is auto-computed — no manual work needed
 4. Refresh browser cookies if `cf_clearance` expired
 
-**Helper scripts (in `data/`):**
+**Investigation scripts (in `investigation/`):**
 - `extract_hash2.js` — extracts `CategoryPageListQuery` from bundle, prints it, computes hash
 - `verify_hash.js` — cross-checks computed hash against known good hash
 - `check_frags.js` — verifies all fragment spreads are satisfied in the document
 - `capture_hash.js` — Playwright-based network interceptor (needs valid cf_clearance)
+- `debug_bundle.js` — downloaded JS bundle snapshot used during extraction
+- `category_page_list_query.graphql` — extracted canonical query text (read by `scraper.py`)
